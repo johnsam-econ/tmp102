@@ -4,6 +4,8 @@
 #include <stdint.h>
 #include <stdio.h>
 
+#include "tmp102.h"
+
 float tmp102_raw_to_celsius(uint16_t reg);
 
 struct tmp102_case {
