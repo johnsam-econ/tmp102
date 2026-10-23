@@ -12,5 +12,9 @@
 #define TEMP_NORMAL_MODE            (0)
 #define TEMP_EXTENDED_MODE          (1)
 
+#define TMP102_REG_TEMP    0x00
+#define TMP102_REG_CONFIG  0x01
+#define TMP102_REG_TLOW    0x02
+#define TMP102_REG_THIGH   0x03
 
 float tmp102_raw_to_celsius(uint16_t reg);
