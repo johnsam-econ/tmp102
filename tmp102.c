@@ -14,7 +14,7 @@ float tmp102_raw_to_celsius(uint16_t reg){
         reg = reg>>TEMP_EXTENDED_DATA_SHIFT;
 
         /* Check whether the sign bit indicates a negative temperature. */
-        if(reg&(TEMP_BIT_SET<<TEMP_EXTENDED_SIGN_BIT)){
+        if(reg&BIT_MASK(TEMP_EXTENDED_SIGN_BIT)){
 
             /* Convert the negative two's complement value to its magnitude. */
             reg = (~reg)&EXTENDED_MASK;
@@ -34,7 +34,7 @@ float tmp102_raw_to_celsius(uint16_t reg){
         reg = reg>>TEMP_NORMAL_DATA_SHIFT;
 
         /* Check whether the sign bit indicates a negative temperature. */
-        if(reg&(TEMP_BIT_SET<<TEMP_NORMAL_SIGN_BIT)){
+        if(reg&BIT_MASK(TEMP_NORMAL_SIGN_BIT)){
 
             /* Convert the negative two's complement value to its magnitude. */
             reg = (~reg)&NORMAL_MASK;

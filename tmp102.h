@@ -4,6 +4,9 @@
 #define NORMAL_MASK                 (0x0FFF)  // 12-bit temperature data mask
 #define EXTENDED_MASK               (0x1FFF)  // 13-bit temperature data mask
 
+/* Generate a bit mask with the specified bit position set to 1 */
+#define BIT_MASK(bit)               (1U << (bit))
+
 /* Temperature conversion resolution in degrees Celsius per bit */
 #define RESOLUTION                  (0.0625f)
 
@@ -24,16 +27,16 @@
 #define TEMP_EXTENDED_MODE          (1)
 
 /* TMP102 internal register addresses */
-#define TMP102_REG_TEMP              (0x00)   // Temperature register
-#define TMP102_REG_CONFIG            (0x01)   // Configuration register
-#define TMP102_REG_TLOW              (0x02)   // Low-temperature threshold register
-#define TMP102_REG_THIGH             (0x03)   // High-temperature threshold register
+#define TMP102_REG_TEMP             (0x00)   // Temperature register
+#define TMP102_REG_CONFIG           (0x01)   // Configuration register
+#define TMP102_REG_TLOW             (0x02)   // Low-temperature threshold register
+#define TMP102_REG_THIGH            (0x03)   // High-temperature threshold register
 
 /* 7-bit I2C device addresses based on the ADD0 pin connection */
-#define TMP102_ADDR_A0_GND           (0x48)   // ADD0 connected to GND
-#define TMP102_ADDR_A0_VPLUS         (0x49)   // ADD0 connected to V+
-#define TMP102_ADDR_A0_SDA           (0x4A)   // ADD0 connected to SDA
-#define TMP102_ADDR_A0_SCL           (0x4B)   // ADD0 connected to SCL
+#define TMP102_ADDR_A0_GND          (0x48)   // ADD0 connected to GND
+#define TMP102_ADDR_A0_VPLUS        (0x49)   // ADD0 connected to V+
+#define TMP102_ADDR_A0_SDA          (0x4A)   // ADD0 connected to SDA
+#define TMP102_ADDR_A0_SCL          (0x4B)   // ADD0 connected to SCL
 
 /* Convert a raw 16-bit temperature register value to degrees Celsius */
 float tmp102_raw_to_celsius(uint16_t reg);
